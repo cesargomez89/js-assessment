@@ -66,19 +66,26 @@ define(function() {
     duplicates : function(arr) {
       var cd=0;
       var dup=[];
+      arr.sort();
       for(var i=0;i<arr.length;i++){
         for(var j=0;j<arr.length;j++){
           if(arr[i]==arr[j])
             cd++;
         }
-        if(cd>1) dup.push(arr[i]);
+        if(cd>1) {
+          arr.splice(i,1);
+        dup.push(arr[i]);
+          }
         cd=0;
       }
       return dup;
     },
 
     square : function(arr) {
-
+    for(var i=0; i<arr.length; i++){
+    arr[i]=arr[i]*arr[i];
+    }
+    return arr;
     },
 
     findAllOccurrences : function(arr, target) {
