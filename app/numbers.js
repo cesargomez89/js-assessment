@@ -10,7 +10,11 @@ define(function() {
     },
 
     convertToBinary: function(num) {
-      return parseInt(num,2);
+    var a=parseInt(num,8);
+    var b=parseInt(num,2);
+    console.log(b);
+    return b.toString();
+
     },
 
     multiply: function(a, b) {
