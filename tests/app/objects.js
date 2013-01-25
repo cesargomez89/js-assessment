@@ -23,8 +23,9 @@ define([
         greeting : 'Yo'
       };
 
-      C = function(name) {
+      C = function(name, greeting) {
         this.name = name;
+        this.greeting = greeting;
         return this;
       };
     });
