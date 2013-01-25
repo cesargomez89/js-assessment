@@ -11,22 +11,23 @@ define(function() {
       myObject = {
         name : 'Jory'
       };
-
+      console.log(myObject.name);
       return myObject;
     },
 
     functions : function(flag) {
-      if (flag) {
-        function getValue() { return 'a'; }
-      } else {
-        function getValue() { return 'b'; }
+       // return(function(){ 
+          if(flag){ return 'a';}
+          else {return 'b';}
+         // })();
       }
-
-      return getValue();
     },
 
     parseInt : function(num) {
-      return parseInt(num);
+      var r=new RegExp(/^\d{1,}/);
+      num=num.match(r);
+      console.log(num);
+      return parseInt(num,10);
     },
 
     identity : function(val1, val2) {
