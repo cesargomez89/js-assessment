@@ -11,7 +11,6 @@ define(function() {
       myObject = {
         name : 'Jory'
       };
-      console.log(myObject.name);
       return myObject;
     },
 
@@ -20,18 +19,16 @@ define(function() {
           if(flag){ return 'a';}
           else {return 'b';}
          // })();
-      }
     },
 
     parseInt : function(num) {
       var r=new RegExp(/^\d{1,}/);
       num=num.match(r);
-      console.log(num);
       return parseInt(num,10);
     },
 
     identity : function(val1, val2) {
-
+    //if(val1||val2)? return true : return false;
     }
   };
 });
