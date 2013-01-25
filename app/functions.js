@@ -7,7 +7,7 @@ define(function() {
     },
 
     speak : function(fn, obj) {
-      return fn(obj.greeting, obj.name,"!!!");
+      return fn.call(obj);
     },
 
     functionFunction : function(str) {
@@ -17,15 +17,23 @@ define(function() {
     },
 
     makeClosures : function(arr, fn) {
-    
+    console.log(fn);
+    for(var i=0; i<arr.length; i++){
+      return fn.call(arr[i]);
+    }
     },
 
     partial : function(fn, str1, str2) {
-    
+      console.log(fn) ;
+      return fn(str1, str2);
     },
 
-    useArguments : function() {
-
+    useArguments : function(a,b,c,d) {
+console.log(a);
+    return a;
+    return a+b;
+    return a+b+c;
+    return a+b+c+d;
     },
 
     callIt : function(fn) {

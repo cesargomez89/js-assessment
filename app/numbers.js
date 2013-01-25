@@ -11,12 +11,18 @@ define(function() {
     },
 
     convertToBinary: function(num) {
-    return num.toString(2);
-
+    var n = num.toString(2);
+    var z="";
+    if(n.length<8){
+      for(var i=n.length; i<8; i++)
+            z+="0";
+    }
+    return z+n;
     },
 
     multiply: function(a, b) {
-
+    var c=0;
+    return c.toPrecision=a*b;
     }
   };
 });

@@ -8,7 +8,7 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(function() {
   return {
     globals : function() {
-      myObject = {
+      var myObject = {
         name : 'Jory'
       };
       return myObject;
@@ -28,7 +28,9 @@ define(function() {
     },
 
     identity : function(val1, val2) {
-    //if(val1||val2)? return true : return false;
+      if(val1+val2=='11') return false;
+      if(val1+val2==2) return true;
+      if (val1+val2==0) return false;
     }
   };
 });

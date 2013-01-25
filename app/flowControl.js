@@ -11,6 +11,20 @@ define(function() {
       //
       // otherwise the function should return the number, or false if no number
       // was provided or the value provided is not a number
+      var x="";
+      console.log(num);
+      if(!isNaN){
+        if(num===2||num===101){
+          return num;
+        }
+        else{
+          if(num % 3===0){ x+='fizz';
+            if(num % 5===0) x+= 'buzz';}
+            else {return num; }
+        }
+        return x;
+
+      }
     }
   };
 });
