@@ -25,22 +25,33 @@ define(function() {
 
     partial : function(fn, str1, str2) {
       console.log(fn) ;
-      return fn(str1, str2);
+      function a(x){
+      return fn(str1, str2, x);
+      }
+      return a;
     },
 
-    useArguments : function(a,b,c,d) {
-console.log(a);
-    return a;
-    return a+b;
-    return a+b+c;
-    return a+b+c+d;
+    useArguments : function() {
+    var arg=arguments.length;
+    var x=0;
+    for(var i=0;i<arg;i++)
+    x+=arguments[i];
+    return x;
     },
 
     callIt : function(fn) {
-
+    if(arguments.length==2)
+      return fn(arguments[1],arguments[2]);
+    if(arguments.length==3)
+      return fn(arguments[1],arguments[2], arguments[3]);
     },
 
     partialUsingArguments : function(fn) {
+
+      function a(){
+      return fn(arguments[1],arguments[2],arguments[3]);
+      }
+      return a;
 
     },
 

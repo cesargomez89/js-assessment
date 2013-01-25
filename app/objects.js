@@ -9,8 +9,9 @@ define(function() {
     },
 
     alterObjects : function(constructor, greeting) {
-    //console.log(constructor);
-    return constructor();
+
+    console.log(greeting);
+    return constructor.apply(greeting);
     },
 
     iterate : function(obj) {

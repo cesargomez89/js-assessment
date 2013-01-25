@@ -8,7 +8,7 @@ define(function() {
     },
 
     containsRepeatingLetter : function(str) {
-    var r=new RegExp(/[A-z]+/);
+    var r=new RegExp(/[A-z]\1/);
     return r.test(str);
     },
 

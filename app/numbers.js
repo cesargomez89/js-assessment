@@ -21,8 +21,8 @@ define(function() {
     },
 
     multiply: function(a, b) {
-    var c=0;
-    return c.toPrecision=a*b;
+    var c=a*b;
+    return parseInt(c.toFixed(1));
     }
   };
 });
