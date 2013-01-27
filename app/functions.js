@@ -3,7 +3,7 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(function() {
   return {
     argsAsArray : function(fn, arr) {
-    return fn(arr[0],arr[1],arr[2]);
+      return fn.apply(fn, arr);
     },
 
     speak : function(fn, obj) {
@@ -11,45 +11,48 @@ define(function() {
     },
 
     functionFunction : function(str) {
-    return (function(str1){
-      return str+", "+str1;
-    })
+      return (function(str1){
+        return str+", "+str1;
+      })
     },
 
     makeClosures : function(arr, fn) {
-    console.log(fn);
-    for(var i=0; i<arr.length; i++){
-      return fn.call(arr[i]);
-    }
+      console.log(fn);
+      //for(var i=0; i<arr.length; i++){
+        //return fn.call(arr[i]);
+      return function(){
+       return fn(arr[arguments[1]]);
+      }
+      
     },
 
     partial : function(fn, str1, str2) {
       console.log(fn) ;
       function a(x){
-      return fn(str1, str2, x);
+        return fn(str1, str2, x);
       }
       return a;
     },
 
     useArguments : function() {
-    var arg=arguments.length;
-    var x=0;
-    for(var i=0;i<arg;i++)
-    x+=arguments[i];
-    return x;
+      var arg=arguments.length;
+      var x=0;
+      for(var i=0;i<arg;i++)
+      x+=arguments[i];
+      return x;
     },
 
     callIt : function(fn) {
-    if(arguments.length==2)
-      return fn(arguments[1],arguments[2]);
-    if(arguments.length==3)
-      return fn(arguments[1],arguments[2], arguments[3]);
+      if(arguments.length==3)
+        return fn(arguments[1],arguments[2]);
+      if(arguments.length==4)
+        return fn(arguments[1],arguments[2], arguments[3]);
     },
 
     partialUsingArguments : function(fn) {
 
       function a(){
-      return fn(arguments[1],arguments[2],arguments[3]);
+        return fn(arguments[1],arguments[2],arguments[3]);
       }
       return a;
 

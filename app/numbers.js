@@ -3,7 +3,8 @@ if (typeof define !== 'function') { var define = require('amdefine')(module); }
 define(function() {
   return {
     valueAtBit: function(num, bit) {
-      return parseInt(num, bit);
+      var a=num.toString(2).split("").reverse();
+      return parseInt(a[bit-1]);
     },
 
     base10: function(str) {
@@ -22,7 +23,9 @@ define(function() {
 
     multiply: function(a, b) {
     var c=a*b;
-    return parseInt(c.toFixed(1));
+    var a=parseFloat(c.toFixed(4));
+    console.log(a);
+    return a;
     }
   };
 });

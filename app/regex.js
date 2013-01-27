@@ -8,7 +8,7 @@ define(function() {
     },
 
     containsRepeatingLetter : function(str) {
-    var r=new RegExp(/[A-z]\1/);
+    var r=new RegExp(/([A-z])\1/);
     return r.test(str);
     },
 
@@ -30,7 +30,7 @@ define(function() {
     return r.test(str);
     },
     isUSD : function(str) {
-    var r=new RegExp(/^\$\d{1,3}\.\d\d|,\d{3,3}] /);
+    var r=new RegExp(/^\$\d{1,3}(?:,?\d{3})*(?:\.\d{2})?$/);
     return r.test(str);
     }
   };
