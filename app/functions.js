@@ -17,19 +17,22 @@ define(function() {
     },
 
     makeClosures : function(arr, fn) {
-      console.log(fn);
-      //for(var i=0; i<arr.length; i++){
-        //return fn.call(arr[i]);
-      return function(){
-       return fn(arr[arguments[1]]);
+      //console.log(fn);
+      var arr2=[];
+      var newfn = function(num){
+       return function(){return fn(num);}
+      };
+
+      for(var i=0; i<arr.length; i++){
+        arr2.push(newfn(arr[i]));
       }
-      
+        return arr2;
     },
 
     partial : function(fn, str1, str2) {
       console.log(fn) ;
       function a(x){
-        return fn(str1, str2, x);
+        return fn.call(null, str1, str2, x);
       }
       return a;
     },
@@ -43,18 +46,16 @@ define(function() {
     },
 
     callIt : function(fn) {
-      if(arguments.length==3)
-        return fn(arguments[1],arguments[2]);
-      if(arguments.length==4)
-        return fn(arguments[1],arguments[2], arguments[3]);
+   var args = Array.prototype.slice.call(arguments, 1, arguments.length);
+      fn.apply(null, args);
     },
 
     partialUsingArguments : function(fn) {
-
-      function a(){
-        return fn(arguments[1],arguments[2],arguments[3]);
+      var args = Array.prototype.slice.call(arguments, 1, arguments.length);
+      return function() {
+        var args2 = args.concat(Array.prototype.slice.call(arguments));
+        return fn.apply(null, args2);
       }
-      return a;
 
     },
 
